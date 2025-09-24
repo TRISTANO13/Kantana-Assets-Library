@@ -1,17 +1,16 @@
 @echo off
 setlocal
 
-REM Dossiers
+REM Folders
 set "SERVER_DIR=%USERPROFILE%\Documents\Asset Library Project\Server"
 set "WEB_DIR=%USERPROFILE%\Documents\Asset Library Project\Web"
 
-REM --- Démarre chaque app dans un process séparé (fenêtre minimisée) ---
+REM --- Start each app in a separate process (minimized window) ---
 powershell -NoProfile -WindowStyle Hidden -Command ^
   "Start-Process cmd -ArgumentList '/c','npm start' -WorkingDirectory '%SERVER_DIR%' -WindowStyle Hidden"
 
 powershell -NoProfile -WindowStyle Hidden -Command ^
   "Start-Process cmd -ArgumentList '/c','npm run dev' -WorkingDirectory '%WEB_DIR%' -WindowStyle Hidden"
 
-
-REM Ferme la fenêtre batch immédiatement
+REM Close the batch window immediately
 exit /b
