@@ -1,8 +1,8 @@
 @echo off
-echo 🔴 Arrêt des serveurs Node.js...
+echo 🔴 Stopping Node.js servers...
 
-REM Tue tous les process node.exe
+REM Kill all node.exe processes
 taskkill /IM node.exe /F >nul 2>&1
 
-echo ✅ Tous les serveurs Node.js ont été arrêtés.
+echo ✅ All Node.js servers have been stopped.
 pause
