@@ -7,7 +7,7 @@ services:
       PORT: 5174
       ASSETS_ROOT: /assets
     volumes:
-      - ${ASSETS_HOST_DIR:-./assets}:/assets:ro
+      - ./assets:/assets:ro
     expose:
       - "5174"
   web:
