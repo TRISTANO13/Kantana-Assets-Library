@@ -62,6 +62,7 @@ API and Nginx for the built frontend).
    The value can point to any host folder that Docker Desktop is allowed to
    share. It will be mounted read-only inside the backend container at
    `/assets`.
+   
 4. **Launch the stack** with Docker Desktop:
 
    ```bash
