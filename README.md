@@ -46,13 +46,23 @@ starts both the API and the web application in two containers (Node.js for the
 API and Nginx for the built frontend).
 
 1. **Prepare an assets folder on your machine** (for example
-   `C:\AssetsLibrary`). The backend will read-only mount this folder inside the
-   container. Place a few test files inside to verify everything works.
+   `C:\AssetsLibrary`) and add a few test files. In Docker Desktop go to
+   **Settings → Resources → File Sharing** and make sure the drive or directory
+   that contains this folder is shared, otherwise containers cannot read it.
 2. **Clone the repository** and open a terminal in its root.
-3. **Adjust the volume mapping if necessary.** By default the compose file maps
-   a local `./assets` directory. You can either create that directory next to
-   the compose file or edit the `volumes` entry so it points to your own folder
-   (e.g. `C:\\AssetsLibrary:/assets:ro`).
+3. **Tell Docker which folder to mount (optional).** By default the compose file
+   maps a local `./assets` directory. You can either create that directory next
+   to the compose file or set an `ASSETS_HOST_DIR` variable in a `.env` file at
+   the repository root, for example:
+
+   ```env
+   ASSETS_HOST_DIR=C:\\AssetsLibrary
+   ```
+
+   The value can point to any host folder that Docker Desktop is allowed to
+   share. It will be mounted read-only inside the backend container at
+   `/assets`.
+   
 4. **Launch the stack** with Docker Desktop:
 
    ```bash
